@@ -1,0 +1,26 @@
+.hotelList {
+  margin: 5rem 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media screen and (min-width: 400px) {
+  .hotelList {
+    justify-items: center;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .hotelList {
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hotelList {
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

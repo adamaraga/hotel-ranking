@@ -1,11 +1,18 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
-// @import "layout/navigation";
+@import "layout/mainLayout";
 
-// @import "components/buttons";
+@import "components/filter";
+@import "components/hotelCard";
+@import "components/hotelList";
+@import "components/navbar";
+@import "components/drawer";
+@import "components/createHotel";
+@import "components/hotelForm";
 
-// @import "pages/home";
+@import "pages/home";
+
 :root {
   font-size: 62.5%;
 }
@@ -24,7 +31,7 @@ html {
 body {
   color: $text-color;
   margin: 0;
-  padding: 0;
+  padding: 10rem 10%;
   font-size: 1.6rem;
   font-family: "Nunito", sans-serif;
 }
@@ -36,6 +43,7 @@ ul {
 
 a {
   text-decoration: none;
+  color: $primary-color;
 }
 
 img {
@@ -56,4 +64,18 @@ input[type="number"]::-webkit-outer-spin-button {
   -moz-appearance: none;
   appearance: none;
   margin: 0;
+}
+
+.szh-menu__item {
+  display: inline-block;
+  padding: 0;
+}
+.szh-menu__item:hover {
+  background-color: transparent;
+}
+
+.noData {
+  margin: 5rem 0;
+  text-align: center;
+  color: rgb(137, 137, 137);
 }

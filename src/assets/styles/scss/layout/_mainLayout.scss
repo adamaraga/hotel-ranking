@@ -1,0 +1,23 @@
+.mainLayout {
+  &__title {
+    text-align: center;
+    font-size: $title-size-s;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .mainLayout {
+    &__title {
+      font-size: $title-size-m;
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .mainLayout {
+    &__title {
+      text-align: center;
+      font-size: $title-size-l;
+    }
+  }
+}

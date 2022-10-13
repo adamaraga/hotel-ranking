@@ -1,0 +1,14 @@
+.createHotel {
+  &__main {
+    position: relative;
+    &__closeBtn {
+      position: absolute;
+      top: -3rem;
+      right: -1rem;
+    }
+
+    & h2 {
+      text-align: center;
+    }
+  }
+}

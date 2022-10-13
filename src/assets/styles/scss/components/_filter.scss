@@ -1,0 +1,21 @@
+.filter {
+  &__main {
+    padding: 1rem 2rem;
+    width: 19rem;
+
+    &__btnCon {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__form {
+      margin-top: 1.5rem;
+      &__inputCon {
+        margin-bottom: 1.5rem;
+      }
+      &__btnCon {
+        @include flex-center;
+      }
+    }
+  }
+}

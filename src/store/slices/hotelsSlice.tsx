@@ -1,35 +1,99 @@
-import { InitialState } from "../../types/redux/hotels";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { HotelInitialState, HotelType } from "../../types";
 
-const initialState: InitialState = {
-  value: 0,
+const initialState: HotelInitialState = {
+  hotels: [
+    {
+      id: "dkhf674g367gh34hg32",
+      name: "Four seasons Hotel",
+      country: "Spain",
+      city: "Madrid",
+      chain: "Hilton",
+      image:
+        "https://res.cloudinary.com/dviuz7w46/image/upload/v1663155219/HOMMES%20ESTATE/WUSE_PRPTY._wmvt33.png",
+      longitude: "394839",
+      latitude: "3743948",
+      address: "Lorem ipsum dolor .",
+      ranking: 4,
+    },
+    {
+      id: "sfnsghvd65ds7dsd",
+      name: "Four seasons Hotel",
+      country: "Spain",
+      city: "Madrid",
+      chain: "Hilton",
+      image:
+        "https://res.cloudinary.com/dviuz7w46/image/upload/v1663155219/HOMMES%20ESTATE/WUSE_PRPTY._wmvt33.png",
+      longitude: "394839",
+      latitude: "3743948",
+      address: "Lorem ipsum dolor .",
+      ranking: 4,
+    },
+    {
+      id: "dmbsj567d6sdsjbd",
+      name: "Four seasons Hotel",
+      country: "Spain",
+      city: "Madrid",
+      chain: "Hilton",
+      image:
+        "https://res.cloudinary.com/dviuz7w46/image/upload/v1663155219/HOMMES%20ESTATE/WUSE_PRPTY._wmvt33.png",
+      longitude: "394839",
+      latitude: "3743948",
+      address:
+        "Lorem ipsum dolor ybksdfnjcvniefldjksnch sehkrcuybjhenwrhfgrbewknj.",
+      ranking: 4,
+    },
+  ],
+  editMode: { status: false, hotelId: "" },
+  filter: [],
 };
+
+interface EditHoteltype {
+  main: HotelType;
+  indexNo: number | null;
+}
 
 export const hotelsSlice = createSlice({
   name: "hotels",
   initialState: initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    deleteHotel: (state, action: PayloadAction<string>) => {
+      let newHotels = state.hotels.filter(
+        (hotel) => hotel.id !== action.payload
+      );
+      state.hotels = newHotels;
     },
-    decrement: (state) => {
-      state.value -= 1;
+    createHotel: (state, action: PayloadAction<HotelType>) => {
+      let newHotels = [action.payload, ...state.hotels];
+      state.hotels = newHotels;
     },
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
+    editHotel: (state, action: PayloadAction<EditHoteltype>) => {
+      if (typeof action.payload.indexNo === "number") {
+        state.hotels[action.payload.indexNo] = action.payload.main;
+      }
     },
-    setCounter: (state, action: PayloadAction<number>) => {
-      state.value = action.payload;
+    onEditMode: (state, action: PayloadAction<string>) => {
+      let newEditmode = { status: true, hotelId: action.payload };
+      state.editMode = newEditmode;
+    },
+    offEditMode: (state) => {
+      let newEditmode = { status: false, hotelId: "" };
+      state.editMode = newEditmode;
+    },
+    filter: (state, action: PayloadAction<string[] | []>) => {
+      state.filter = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, setCounter } =
-  hotelsSlice.actions;
+export const {
+  deleteHotel,
+  createHotel,
+  editHotel,
+  offEditMode,
+  onEditMode,
+  filter,
+} = hotelsSlice.actions;
 // You must export the reducer as follows for it to be able to be read by the store.
 export default hotelsSlice.reducer;
