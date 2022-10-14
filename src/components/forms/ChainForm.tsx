@@ -37,8 +37,21 @@ const ChainForm = ({ closeModal }: ChainFormType) => {
   const validate = (): boolean => {
     let nameError = "";
 
+    const checkNameUniqueness = (): boolean => {
+      const nameIndex = chains.findIndex((chain) => chain.name === name);
+
+      if (nameIndex === -1) {
+        return true;
+      }
+
+      return false;
+    };
+
     if (!name) {
       nameError = "name is required";
+    }
+    if (!checkNameUniqueness()) {
+      nameError = "name already taken";
     }
 
     if (nameError) {
