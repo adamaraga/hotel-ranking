@@ -3,7 +3,6 @@ import { colorTheme } from "../../../assets/colors";
 import { ButtonType } from "../../../types";
 
 export const Button = styled.button<ButtonType>`
-  /* Adapt the colors based on primary prop */
   background: ${(props) =>
     props?.fill === "true" ? colorTheme.primary : "white"};
   color: ${(props) => (props.fill ? "white" : colorTheme.primary)};
@@ -28,4 +27,22 @@ export const Button = styled.button<ButtonType>`
   gap: 1rem;
   font-size: ${(props) => (props.small === "true" ? "1.2rem" : "1.6rem")};
   cursor: pointer;
+`;
+
+export const ButtonAction = styled.button`
+  display: inline-block;
+  width: 3.5rem;
+  border-radius: 50%;
+  height: 3.5rem;
+  border: 2px solid ${colorTheme.lightGray};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #fff;
+
+  &:hover {
+    background-color: ${colorTheme.lightGray};
+  }
 `;

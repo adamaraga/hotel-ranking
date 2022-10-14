@@ -26,6 +26,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
   const dispatch = useAppDispatch();
   const editMode = useAppSelector((state) => state.hotels.editMode);
   const hotels = useAppSelector((state) => state.hotels.hotels);
+  const chains = useAppSelector((state) => state.chains.chains);
 
   useEffect(() => {
     if (editMode.status) {
@@ -183,9 +184,20 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           name="chain"
           label="Chain"
           value={chain}
+          disabled={chains.length <= 0 ? true : false}
         >
-          <option value=""></option>
-          <option value="Hilton">Hilton</option>
+          {chains.length > 0 ? (
+            <>
+              <option value=""></option>
+              {chains.map((chain) => (
+                <option key={chain.id} value={chain.name}>
+                  {chain.name}
+                </option>
+              ))}
+            </>
+          ) : (
+            <option value="">--No chain--</option>
+          )}
         </SelectField>
         <TextField
           inputError={inputError.image}

@@ -1,0 +1,6 @@
+.chainList {
+  margin-top: 3rem;
+  @include flex-center;
+  flex-direction: column;
+  gap: 2rem;
+}

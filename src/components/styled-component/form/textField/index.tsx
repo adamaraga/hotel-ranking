@@ -39,6 +39,7 @@ type NewTextFieldType = Omit<TextFieldType, "onChange">;
 
 interface SelectFieldType extends NewTextFieldType, Children {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  disabled?: boolean;
 }
 
 export const SelectField = ({
@@ -48,6 +49,7 @@ export const SelectField = ({
   value,
   onChange,
   children,
+  disabled,
 }: SelectFieldType) => {
   return (
     <div className="creatHotel__main__inputCon">
@@ -60,6 +62,7 @@ export const SelectField = ({
         value={value}
         id={name}
         onChange={onChange}
+        disabled={disabled}
       >
         {children}
       </Select>

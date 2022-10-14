@@ -6,6 +6,7 @@ import hotelIcon from "../assets/image/svg/hotelMain.svg";
 import { useAppDispatch } from "../hooks/reduxHooks";
 import { deleteHotel, onEditMode } from "../store/slices/hotelsSlice";
 import { HotelCardType } from "../types";
+import { ButtonAction } from "./styled-component/form/buttons";
 
 const HotelCard = ({ hotel }: HotelCardType) => {
   const { name, address, chain, ranking, image, id, country, city } = hotel;
@@ -34,18 +35,12 @@ const HotelCard = ({ hotel }: HotelCardType) => {
           </div>
         </div>
         <div className="hotelCard__btn">
-          <span
-            className="hotelCard__btn__item"
-            onClick={() => dispatch(deleteHotel(id))}
-          >
+          <ButtonAction onClick={() => dispatch(deleteHotel(id))}>
             <img src={deleteIcon} alt="Delete Icon" />
-          </span>
-          <span
-            onClick={() => dispatch(onEditMode(id))}
-            className="hotelCard__btn__item "
-          >
+          </ButtonAction>
+          <ButtonAction onClick={() => dispatch(onEditMode(id))}>
             <img src={editIcon} alt="Edit Icon" />
-          </span>
+          </ButtonAction>
         </div>
       </div>
     </div>

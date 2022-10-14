@@ -10,6 +10,10 @@
 @import "components/drawer";
 @import "components/createHotel";
 @import "components/hotelForm";
+@import "components/createChain";
+@import "components/chainForm";
+@import "components/chainCard";
+@import "components/chainList";
 
 @import "pages/home";
 
@@ -32,6 +36,7 @@ body {
   color: $text-color;
   margin: 0;
   padding: 10rem 10%;
+  margin-bottom: 5rem;
   font-size: 1.6rem;
   font-family: "Nunito", sans-serif;
 }

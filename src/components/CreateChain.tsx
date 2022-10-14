@@ -1,17 +1,17 @@
-import { Button } from "./styled-component/form/buttons";
+import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import addIcon from "../assets/image/svg/addMain.svg";
 import Modal from "react-modal";
-import { useEffect, useState } from "react";
 import { modalCustomStyles } from "../assets/styles/customStyles";
 import closeIcon from "../assets/image/svg/closeMain.svg";
-import HotelForm from "./forms/HotelForm";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
-import { offEditMode } from "../store/slices/hotelsSlice";
+import { Button } from "./styled-component/form/buttons";
+import ChainForm from "./forms/ChainForm";
+import { offEditModeChain } from "../store/slices/chainsSlice";
 
-function CreateHotel() {
+const CreateChain = () => {
   const [modalIsOpen, setIsOpen] = useState<boolean>(false);
 
-  const editMode = useAppSelector((state) => state.hotels.editMode);
+  const editMode = useAppSelector((state) => state.chains.editMode);
   const dispatch = useAppDispatch();
 
   const openModal = () => {
@@ -21,7 +21,7 @@ function CreateHotel() {
   function closeModal() {
     setIsOpen(false);
     if (editMode.status) {
-      dispatch(offEditMode());
+      dispatch(offEditModeChain());
     }
   }
 
@@ -35,30 +35,29 @@ function CreateHotel() {
   }, [editMode.status]);
 
   return (
-    <div className="createHotel">
-      {" "}
+    <div className="createChain">
       <Button onClick={openModal} fill="true">
         <img src={addIcon} alt="filter icon" />
-        Create Hotel
+        Create Chain
       </Button>
       <Modal
         ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={modalCustomStyles}
-        contentLabel="Create Hotel Modal"
+        contentLabel="Create chain Modal"
       >
         <div className="createHotel__main">
           <span className="createHotel__main__closeBtn" onClick={closeModal}>
             <img src={closeIcon} alt="" />
           </span>
-          <h2>{editMode.status ? "Edit" : "Create"} Hotel</h2>
+          <h2>{editMode.status ? "Edit" : "Create"} Chain</h2>
 
-          <HotelForm closeModal={closeModal} />
+          <ChainForm closeModal={closeModal} />
         </div>
       </Modal>
     </div>
   );
-}
+};
 
-export default CreateHotel;
+export default CreateChain;

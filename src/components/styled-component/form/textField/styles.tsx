@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { colorTheme } from "../../../../assets/colors";
-import { ErrorMessageType, InputType } from "../../../../types";
+import { ErrorMessageType, InputType, SelectType } from "../../../../types";
 
 export const Input = styled.input<InputType>`
   height: 3.5rem;
@@ -30,7 +30,9 @@ export const Input = styled.input<InputType>`
   }
 `;
 
-export const Select = styled.select<InputType>`
+export const Select = styled.select<SelectType>`
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "default")};
+
   height: 3rem;
   width: 25rem;
   border-radius: 5px;
