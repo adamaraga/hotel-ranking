@@ -51,7 +51,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editMode.status]);
 
-  const validate = () => {
+  const validate = (): boolean => {
     let nameError = "";
     let cityError = "";
     let countryError = "";

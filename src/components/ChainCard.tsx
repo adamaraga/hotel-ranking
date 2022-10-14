@@ -4,9 +4,8 @@ import editIcon from "../assets/image/svg/editMain.svg";
 import { useAppDispatch } from "../hooks/reduxHooks";
 import { deleteChain, onEditModeChain } from "../store/slices/chainsSlice";
 import { ChainCardType } from "../types";
-import { FC } from "react";
 
-const ChainCard: FC<ChainCardType> = ({ chain }) => {
+const ChainCard = ({ chain }: ChainCardType) => {
   const { name, id } = chain;
 
   const dispatch = useAppDispatch();

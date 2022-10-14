@@ -34,7 +34,7 @@ const ChainForm = ({ closeModal }: ChainFormType) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editMode.status]);
 
-  const validate = () => {
+  const validate = (): boolean => {
     let nameError = "";
 
     if (!name) {

@@ -1,6 +1,4 @@
 import Home from "./pages/Home";
-// import { useAppSelector, useAppDispatch } from "./hooks/reduxHooks";
-// import { incrementByAmount } from "./store/slices/hotelsSlice";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { MainLayout } from "./components/layouts/MainLayout";
 import NotFound from "./pages/NotFound";
@@ -10,10 +8,7 @@ import "./assets/styles/scss/main.scss";
 import Chains from "./pages/Chains";
 import Map from "./pages/Map";
 
-function App() {
-  // const count = useAppSelector((state) => state.hotels.value);
-  // const dispatch = useAppDispatch();
-
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <MainLayout>

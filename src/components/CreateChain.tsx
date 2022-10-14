@@ -14,11 +14,11 @@ const CreateChain = () => {
   const editMode = useAppSelector((state) => state.chains.editMode);
   const dispatch = useAppDispatch();
 
-  const openModal = () => {
+  const openModal = (): void => {
     setIsOpen(true);
   };
 
-  function closeModal() {
+  function closeModal(): void {
     setIsOpen(false);
     if (editMode.status) {
       dispatch(offEditModeChain());

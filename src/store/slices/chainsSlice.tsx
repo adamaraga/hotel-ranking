@@ -44,7 +44,6 @@ export const chainsSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const {
   deleteChain,
   createChain,
@@ -52,5 +51,5 @@ export const {
   offEditModeChain,
   onEditModeChain,
 } = chainsSlice.actions;
-// You must export the reducer as follows for it to be able to be read by the store.
+
 export default chainsSlice.reducer;

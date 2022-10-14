@@ -85,7 +85,6 @@ export const hotelsSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const {
   deleteHotel,
   createHotel,
@@ -94,5 +93,5 @@ export const {
   onEditMode,
   filter,
 } = hotelsSlice.actions;
-// You must export the reducer as follows for it to be able to be read by the store.
+
 export default hotelsSlice.reducer;

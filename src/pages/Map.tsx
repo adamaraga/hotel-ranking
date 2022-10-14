@@ -16,8 +16,6 @@ const Map = () => {
 
   const { id } = useParams();
 
-  console.log("first", longitude, latitude);
-
   useEffect(() => {
     if (id && hotels.length > 0) {
       const newHotel: HotelType[] | [] = hotels.filter(
@@ -31,9 +29,8 @@ const Map = () => {
     }
   }, [id, hotels]);
 
-  //   const mapApiKey = process.env.REACT_APP_MAP_API_KEY;
-  const mapApiKey =
-    "pk.eyJ1IjoiYWRhbWFyYWdhIiwiYSI6ImNsN3M1ejJ6bzA1emozb2p4dDhrdW82djUifQ.a9MeR7njAMxHfxqRrns-5A";
+  const mapApiKey = process.env.REACT_APP_MAP_API_KEY;
+
   return (
     <div className="map">
       {!hotel ? (

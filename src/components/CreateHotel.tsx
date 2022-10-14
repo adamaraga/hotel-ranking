@@ -14,11 +14,11 @@ function CreateHotel() {
   const editMode = useAppSelector((state) => state.hotels.editMode);
   const dispatch = useAppDispatch();
 
-  const openModal = () => {
+  const openModal = (): void => {
     setIsOpen(true);
   };
 
-  function closeModal() {
+  function closeModal(): void {
     setIsOpen(false);
     if (editMode.status) {
       dispatch(offEditMode());
