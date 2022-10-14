@@ -22,12 +22,12 @@ const HotelCard = ({ hotel }: HotelCardType) => {
       <div className="hotelCard__main">
         <div className="hotelCard__info">
           <h3 className="hotelCard__info__title">{name}</h3>
-          <div className="hotelCard__info__country">{`${city}, ${country}`}</div>
           <div>
             {chain && <span className="hotelCard__info__chain">{chain}</span>}
           </div>
+          <div className="hotelCard__info__country">{`${city}, ${country}`}</div>
           <div className="hotelCard__info__address">
-            {address} <Link to={`/map/${id}`}>view location on map</Link>
+            {address} <br /> <Link to={`/map/${id}`}>view location on map</Link>
           </div>
 
           <div className="hotelCard__info__ratingCon">

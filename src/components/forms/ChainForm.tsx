@@ -91,7 +91,7 @@ const ChainForm = ({ closeModal }: ChainFormType) => {
 
       <div className="chainForm__btnCon">
         <Button type="submit" fill="true" width="25rem">
-          {editMode.status ? "Edit" : "Create"} Chain
+          {editMode.status ? "Save" : "Create Chain"}
         </Button>
       </div>
     </form>

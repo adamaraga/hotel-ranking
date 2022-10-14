@@ -14,7 +14,7 @@ import rootReducer from "./rootReducer";
 const persistConfig = {
   key: "root",
   storage,
-  // blacklist: ["hotels"],
+  // blacklist: ["hotels", "chains"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

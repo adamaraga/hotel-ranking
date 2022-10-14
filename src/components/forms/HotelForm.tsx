@@ -56,6 +56,8 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
     let cityError = "";
     let countryError = "";
     let addressError = "";
+    let longitudeError = "";
+    let latitudeError = "";
 
     if (!name) {
       nameError = "name is required";
@@ -69,8 +71,24 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
     if (!address) {
       addressError = "address is required";
     }
+    if (
+      longitude &&
+      (parseInt(longitude) < -180 || parseInt(longitude) > 180)
+    ) {
+      longitudeError = "longitude must be between -180 and 180";
+    }
+    if (latitude && (parseInt(latitude) < -90 || parseInt(latitude) > 90)) {
+      latitudeError = "longitude must be between -90 and 90";
+    }
 
-    if (countryError || cityError || addressError || nameError) {
+    if (
+      countryError ||
+      cityError ||
+      addressError ||
+      nameError ||
+      latitudeError ||
+      longitudeError
+    ) {
       setInputError((currError) => {
         return {
           ...currError,
@@ -78,6 +96,8 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           city: cityError,
           address: addressError,
           country: countryError,
+          latitude: latitudeError,
+          longitude: longitudeError,
         };
       });
 
@@ -127,6 +147,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           inputError={inputError.name}
           onChange={(e) => setName(e.target.value)}
           name="name"
+          type="text"
           label="Name"
           value={name}
         />
@@ -135,6 +156,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           onChange={(e) => setCountry(e.target.value)}
           name="country"
           label="country"
+          type="text"
           value={country}
         />
         <TextField
@@ -143,6 +165,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           name="city"
           label="City"
           value={city}
+          type="text"
         />
         <TextField
           inputError={inputError.address}
@@ -150,6 +173,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           name="address"
           label="Address"
           value={address}
+          type="text"
         />
         <TextField
           inputError={inputError.longitude}
@@ -157,6 +181,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           name="longitude"
           label="Longitude"
           value={longitude}
+          type="number"
         />
         <TextField
           inputError={inputError.latitude}
@@ -164,6 +189,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
           name="latitude"
           label="Latitude"
           value={latitude}
+          type="number"
         />
         <SelectField
           inputError={inputError.ranking}
@@ -210,7 +236,7 @@ const HotelForm = ({ closeModal }: HotelFormType) => {
 
       <div className="hotelForm__btnCon">
         <Button type="submit" fill="true" width="25rem">
-          {editMode.status ? "Edit" : "Create"} Hotel
+          {editMode.status ? "Save" : "Create Hotel"}
         </Button>
       </div>
     </form>

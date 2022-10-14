@@ -7,6 +7,7 @@ interface TextFieldType {
   label: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string | number;
+  type?: string;
 }
 
 export const TextField = ({
@@ -15,6 +16,7 @@ export const TextField = ({
   label,
   value,
   onChange,
+  type,
 }: TextFieldType) => {
   return (
     <div className="creatHotel__main__inputCon">
@@ -25,7 +27,7 @@ export const TextField = ({
       <Input
         error={inputError ? true : false}
         value={value}
-        type="text"
+        type={type}
         id={name}
         onChange={onChange}
       />
